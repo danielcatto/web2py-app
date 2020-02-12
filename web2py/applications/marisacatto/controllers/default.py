@@ -147,30 +147,29 @@ def vender():
     return dict(form=form)
 
 def sale():
-    if not session.cart:
-        session.cart = list()
-        session.cliente = ''
+    if not session.cliente:
+        session.cliente = ()
+        session.cart = []
         session.sub = 0
     query = ''
     product_query=''
     product = tuple()
     
- 
     form = SQLFORM.factory(
         Field('codigo', requires=IS_NOT_EMPTY(), label='Código')
         )
+    if form.process(formname='form').accepted:
+            query = db(Clientes.id == form.vars.codigo).select()
+            if query:
+                session.cliente = (query[0]['id'],query[0]['nome'])
 
     form_product = SQLFORM.factory(
         Field('product_id', requires=IS_NOT_EMPTY(), label='Código produto'),
         Field('quantidade', requires=IS_NOT_EMPTY(), label='Quantidade')
         )
 
-
-    if form.process(formname='form').accepted:
-        query = db(Clientes.id == form.vars.codigo).select()
-        if query:
-            session.cliente = query
-            print('query id', query)
+    
+            
  
     if form_product.process(formname='form_product').accepted:
         product_query = db(Produtos.id == form_product.vars.product_id).select()
@@ -179,13 +178,12 @@ def sale():
             for i in range(len(product_query)):
                 sub_total = float(product_query[i]['valor']) * float(quantidade)
                 session.sub = session.sub + sub_total
-                print(sub_total)
-                product = (product_query[i]['id'], product_query[i]['valor'], quantidade, sub_total)
-                print('produtos ',product)
+                product = (product_query[i]['id'], product_query[i]['nome'], product_query[i]['valor'], quantidade, sub_total)
                 session.cart.append(product)
 
                  
     return dict(form=form, form_product=form_product) 
+
 
 def finalizar():
     pass
