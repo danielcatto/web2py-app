@@ -9,9 +9,9 @@
 {{=form_product}}
 
 
-
+{{ if session.cliente:}}
 Cliente: {{ =session.cliente[0]}} - {{ =session.cliente[1]}}<br>
-
+{{pass}}
 <table width=800px>
     
     <tr>
@@ -34,4 +34,6 @@ Cliente: {{ =session.cliente[0]}} - {{ =session.cliente[1]}}<br>
 
 
 total{{ =session.sub }}
+<Br>
+<a href="{{=URL('default','finalizar.html')}}" class="btn btn-primary mx-2 px-5 mb-3 aos-init aos-animate">Finalizar</a>
 {{end}}

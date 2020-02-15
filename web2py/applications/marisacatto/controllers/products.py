@@ -17,7 +17,7 @@ def product_registration():
 
     if form.process().accepted:
         session.flash = 'Produto Cadastrado'
-        redirect(URL('produtos'))
+        redirect(URL('product'))
     elif form.errors:
         response.flash = "Erro"
     else:
@@ -26,7 +26,7 @@ def product_registration():
 
 @auth.requires_login()
 def product():
-    produtos = db(Produtos.id == 7).select()
+    produtos = db(Produtos).select()
 
     return dict(produtos=produtos)
 

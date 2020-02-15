@@ -100,6 +100,21 @@ def login():
 
 
 
+###teste pessoa insert
+
+def pessoa():
+    form = SQLFORM(Pessoa)
+    if form.process().accepted:
+        session.flash = 'registered ok', form.vars.id
+        redirect(URL('index'))
+    elif form.errors:
+        response.flash = "Erro"
+    else:
+        response.flash = "Fill in all fields"
+    return dict(form=form)
+
+
+
 ###########################################
 ############## VENDAS #####################
 ###########################################
@@ -133,10 +148,6 @@ def vender():
             qtd = form.vars.quantidade
             total =  float(produtos[0]['valor']) * float(qtd)
             session.sub += total
-
-            print('#'*80)
-            print(session.sub)
-            print('#'*80)
             cart = (produtos, qtd, total)
             session.carrinho.append(cart)
         else:
@@ -146,7 +157,11 @@ def vender():
     print(type(produtos))
     return dict(form=form)
 
-def sale():
+
+
+################################
+
+def cart():
     if not session.cliente:
         session.cliente = ()
         session.cart = []
@@ -162,6 +177,7 @@ def sale():
             query = db(Clientes.id == form.vars.codigo).select()
             if query:
                 session.cliente = (query[0]['id'],query[0]['nome'])
+                print('session.cliente[0]', session.cliente[0])
 
     form_product = SQLFORM.factory(
         Field('product_id', requires=IS_NOT_EMPTY(), label='Código produto'),
@@ -184,9 +200,19 @@ def sale():
                  
     return dict(form=form, form_product=form_product) 
 
-
 def finalizar():
-    pass
+    cliente_id = session.cliente[0]
+    cliente_nome = session.cliente[1]
+
+    cart = session.cart
+    print('cart ', cart)
+    for i in range(len(cart)):
+        print(cart[i][0])
+
+    db.vendas.insert(cliente_id=cliente_id)
+
+    print('id', cliente_id, ' ', cliente_nome)
+    return dict(finalizar=finalizar)
 
 #teste com data 
 def contando_data():

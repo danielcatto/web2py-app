@@ -157,6 +157,15 @@ if configuration.get('scheduler.enabled'):
 
 
 
+
+
+#
+Pessoa = db.define_table    ('pessoa',
+                            Field('nome', 'string'),
+                            Field('telefone', 'integer')
+                            )
+
+
 #Tabela clientes
 
 Clientes = db.define_table('clientes',
@@ -201,22 +210,26 @@ Produtos = db.define_table('produtos',
 Produtos.nome.requires=IS_NOT_EMPTY()
 Produtos.valor.requires=IS_NOT_EMPTY()
 Produtos.quantidade.requires=IS_NOT_EMPTY()
-#Produtos.imagemdoproduto.requires=IS_NOT_EMPTY()
+Produtos.data_cadastro.requires = IS_DATETIME(format='%d/%m/%Y')
 Produtos.data_cadastro.requires=IS_NOT_EMPTY()
 
 
-#Tabela de vendas
-Vendas =  db.define_table('vendas',
-                            Field('cliente_id', 'integer'),
-                            Field('nome', 'string'),
-                            Field('produto_codigo', 'integer'),
-                            Field('quantidade', 'integer'),                        
+
+Itens = db.define_table('itens',
+			    Field('pedido', 'integer'),
+			    Field('codigo_produto', 'integer'),
+			    Field('quantidade', 'float'),
+			    Field('valor', 'float'),
+			    Field('sub_total', 'float')
+			     )
+
+
+Venda =  db.define_table('vendas',
+                            
+                            Field('cliente_id','integer'),
+                            Field('nome', 'string'),                     
                             Field('total_compra', 'float'),
                             Field('forma_pagamento', 'string'),
                             Field('status', 'boolean')
-                            
                             )
 
-
-
-        
