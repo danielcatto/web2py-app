@@ -158,7 +158,7 @@ def vender():
     return dict(form=form)
 
 
-
+'''
 ################################
 
 def cart():
@@ -199,20 +199,26 @@ def cart():
 
                  
     return dict(form=form, form_product=form_product) 
-
+'''
 def finalizar():
     cliente_id = session.cliente[0]
     cliente_nome = session.cliente[1]
 
     cart = session.cart
-    print('cart ', cart)
-    for i in range(len(cart)):
-        print(cart[i][0])
+    
+    #for i in range(len(cart)):
+        #print(cart[i][0])
 
-    db.vendas.insert(cliente_id=cliente_id)
+    db.vendas.insert(cliente_id=cliente_id, nome=cliente_nome)
 
-    print('id', cliente_id, ' ', cliente_nome)
+    print('retorno insert ', db.vendas.insert)
+    #redirect(URL('default', 'delete_cart'))
     return dict(finalizar=finalizar)
+
+def delete_cart():
+    session.cliente = None
+    session.cart = None
+    return dict(delete_cart=delete_cart)
 
 #teste com data 
 def contando_data():

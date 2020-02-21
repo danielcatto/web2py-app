@@ -22,6 +22,7 @@ Cliente: {{ =session.cliente[0]}} - {{ =session.cliente[1]}}<br>
         <td>sub_total </td>
         
     </tr>
+    {{if session.cart:}}
     {{ for lista in range(len(session.cart)): }}
     <tr>
         <td>{{ =session.cart[lista][0] }} </td>
@@ -30,6 +31,7 @@ Cliente: {{ =session.cliente[0]}} - {{ =session.cliente[1]}}<br>
         <td>{{ =session.cart[lista][3] }}</td>
         <td>{{ =session.cart[lista][4] }}</td>
     {{ pass }}
+    {{pass}}
     </tr>
   
 </table>

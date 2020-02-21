@@ -4,12 +4,9 @@ def index():
 
 
 def show_products():
-    if request.vars.category:
-        product_list = db(db.product.default_category == request.vars.category).select(limitby=(0,20),
-                                                                            orderby=db.product.name)
-    else:
-        product_list = db(db.product).select(limitby=(0,20), orderby=~db.product.name)
-    return locals()
+    grid = SQLFORM.grid(db.produtos.id>0)
+    return grid
+        
     
 @auth.requires_login()
 def product_registration():
