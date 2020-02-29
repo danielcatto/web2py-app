@@ -1,12 +1,19 @@
 # -*- coding: utf-8 -*-
 def index():
-    return dict(index=index)
+    produtos = db(Produtos).select()
+    return dict(produtos=produtos)
+    
 
 
 def show_products():
     grid = SQLFORM.grid(db.produtos.id>0)
     return grid
-        
+
+
+@auth.requires_login()
+def product():
+    produtos = db(Produtos).select()
+    return dict(produtos=produtos)
     
 @auth.requires_login()
 def product_registration():
@@ -21,11 +28,6 @@ def product_registration():
         response.flash = "Preencha todos os campos"
     return dict(form=form)
 
-@auth.requires_login()
-def product():
-    produtos = db(Produtos).select()
-
-    return dict(produtos=produtos)
 
 
 @auth.requires_login()

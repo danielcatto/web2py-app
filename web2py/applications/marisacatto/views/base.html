@@ -84,6 +84,9 @@
             <a class="nav-link" href="{{=URL('products', 'index')}}">Produtos</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{{=URL('default', 'show_cart')}}">Cart</a>
+          </li>
+          <li class="nav-item">
       {{if auth.user:}}
             <a  class="nav-link" href="{{=URL('default','user/logout')}}">| {{=auth.user.first_name}} {{=T('Logout')}} |</a>
           {{else:}}
@@ -100,8 +103,9 @@
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <div class="container" background: url(sweettexture.jpg);>
+        <div class="container">
           <h1 class="display-3">Marisa Catto Make|Hair</h1>
+          
           </div>
       </div>
 

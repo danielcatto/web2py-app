@@ -86,6 +86,7 @@ def user():
     """
     return dict(form=auth())
 
+
 # ---- action to server uploaded static content (required) ---
 @cache.action()
 def download():
@@ -99,9 +100,7 @@ def login():
     return dict(login=login)
 
 
-
 ###teste pessoa insert
-
 def pessoa():
     form = SQLFORM(Pessoa)
     if form.process().accepted:
@@ -112,8 +111,6 @@ def pessoa():
     else:
         response.flash = "Fill in all fields"
     return dict(form=form)
-
-
 
 ###########################################
 ############## VENDAS #####################
@@ -126,8 +123,6 @@ def vendas():
 @auth.requires_login()
 def itens_compras():
     pass
-
-
 
 #@auth.requires_login()
 def vender():
@@ -157,13 +152,47 @@ def vender():
     print(type(produtos))
     return dict(form=form)
 
+def show_cart():
+    if not session.cart:
+        session.cart = []
+    try:
+        cart = session.cart
+    except:
+        cart = ''
 
-'''
-################################
+    return dict(cart=cart)
+
+def delete_cart():
+    session.cart = ''
+    redirect(URL('products', 'product'))
+ 
 
 def cart():
+    if not session.cart:
+        session.cart = []
+    try:
+        product_query = db(Produtos.id == request.args(0, cast=int)).select()
+        
+        #print('testes ini', product_query, 'teste')
+        quantidade = 1
+
+        if product_query:
+                for i in range(len(product_query)):
+                    sub_total = float(product_query[i]['valor']) * float(quantidade)
+
+                    product = (product_query[i]['id'], product_query[i]['nome'], product_query[i]['valor'], quantidade, sub_total)
+                    session.cart.append(product)
+                    redirect(URL('default', 'show_cart'))
+    except:
+        cart=session.cart
+    return dict(cart=session.cart)
+
+
+################################
+
+def cart_form():
     if not session.cliente:
-        session.cliente = ()
+        session.cliente = 'cliente'
         session.cart = []
         session.sub = 0
     query = ''
@@ -184,9 +213,6 @@ def cart():
         Field('quantidade', requires=IS_NOT_EMPTY(), label='Quantidade')
         )
 
-    
-            
- 
     if form_product.process(formname='form_product').accepted:
         product_query = db(Produtos.id == form_product.vars.product_id).select()
         quantidade = form_product.vars.quantidade
@@ -198,8 +224,8 @@ def cart():
                 session.cart.append(product)
 
                  
-    return dict(form=form, form_product=form_product) 
-'''
+    return dict(form=form, form_product=form_product, cart=session.cart, cliente=session.cliente) 
+
 def finalizar():
     cliente_id = session.cliente[0]
     cliente_nome = session.cliente[1]

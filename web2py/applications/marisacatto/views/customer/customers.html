@@ -6,5 +6,6 @@
 
 {{for customer in query:}}
 {{ =customer.id }} {{ =customer.nome }}
+<a href="{{=URL('costumer', 'costumers', args=[customer.id, customer.nome])}}" class="btn btn-primary" role="button">Comprar Agora</a>
 {{ pass }}
 {{ end }}
