@@ -5,25 +5,27 @@
 
 
 <br>
+<table border="1" style="width:800px">
+  <tr bgcolor= "#c0c0c0">
+    <th>Imagem</th>
+    <th>Nome</th>
+    <th>Valor</th>
+    <th>Categoria</th>
+    <th>Estoque</th>
+    <th>Data de Cadastro</th>
+  </tr>
 
-  {{for produto in produtos:}}
-
-    
-
-      
-    
-      <div class="caption" >
-        <img src="{{=URL('default', 'download', args=produto.imagemdoproduto)}}" width="50px" height="50">
-        <a href="{{=URL('product_detail', args=produto.id)}}"> {{=produto.nome}}</a>
-        {{=produto.valor}}
-        {{=produto.categoria.nome_categoria}}
-        
-        
-      </div>
-
-    
-
+  <tr>
+    {{for produto in produtos:}}
+    <td><img src="{{=URL('default', 'download', args=produto.imagemdoproduto)}}" width="50px" height="50"> </td>
+    <td><a href="{{=URL('product_detail', args=produto.id)}}"> {{=produto.nome}}</a>  </td>
+    <td>{{=produto.valor}} </td>
+    <td> {{=produto.categoria.nome_categoria}}</td>
+    <td>{{=produto.quantidade}} </td>
+    <td>{{=produto.data_cadastro}} </td>
+    <td><a href="{{=URL('product_edit', args=produto.id)}}">Editar</a></td>
+  </tr>
   {{pass}}
-<br>
-
+</table>
+  
 {{end}}
