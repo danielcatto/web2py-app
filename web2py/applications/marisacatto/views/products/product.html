@@ -4,26 +4,26 @@
 <H1>Lista de Produtos</H1>
 
 
+<br>
 
-<div class="row">
   {{for produto in produtos:}}
-  <div class="col-sm-6 col-md-4">
+
     
-    <div class="thumbnail">
+
       
     
       <div class="caption" >
-        <img src="{{=URL('default', 'download', args=produto.imagemdoproduto)}}" width="150px" height="150">
-        <h3><a href="{{=URL('product_detail', args=produto.id)}}"> {{=produto.nome}}</a></h3>
-        <p>{{=produto.valor}} </p>
-        <p>{{=produto.categoria.nome_categoria}} </p>
-        <p><a href="{{=URL('default', 'cart', args=produto.id)}}" class="btn btn-primary" role="button">Comprar Agora</a> 
+        <img src="{{=URL('default', 'download', args=produto.imagemdoproduto)}}" width="50px" height="50">
+        <a href="{{=URL('product_detail', args=produto.id)}}"> {{=produto.nome}}</a>
+        {{=produto.valor}}
+        {{=produto.categoria.nome_categoria}}
+        
         
       </div>
-    </div>
+
     
-  </div>
+
   {{pass}}
-</div>
+<br>
 
 {{end}}

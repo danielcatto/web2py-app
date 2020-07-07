@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-d
 
-def index():
-    
+@auth.requires_login()
+def index():    
     query = db(Clientes).select()
     return dict(query=query)
-
 
 @auth.requires_login()
 def customer_registration():
@@ -28,7 +27,7 @@ def customers():
     if form.process().accepted:
         query = db(Clientes.nome.like('%'+request.vars.nome+'%')).select()
         if query:
-            nome = query[0]['nome']
+            session.cliente = (query[0]['id'],query[0]['nome'])
     return dict(query=query, form=form) 
     
 

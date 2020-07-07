@@ -1,4 +1,4 @@
-'''
+
 # -*- coding: utf-8 _*_
 routers = dict(
 	BASE=dict(
@@ -6,4 +6,3 @@ routers = dict(
 	)
 	
 )
-'''

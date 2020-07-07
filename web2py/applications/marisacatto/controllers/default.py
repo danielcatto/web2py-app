@@ -152,21 +152,27 @@ def vender():
     print(type(produtos))
     return dict(form=form)
 
+#@auth.requires_login()
 def show_cart():
+    if not session.cliente:
+        session.cliente = ''
+
     if not session.cart:
         session.cart = []
     try:
         cart = session.cart
+        cliente = session.cliente
     except:
         cart = ''
 
-    return dict(cart=cart)
+    return dict(cart=cart, cliente=cliente)
 
+#@auth.requires_login()
 def delete_cart():
     session.cart = ''
     redirect(URL('products', 'product'))
  
-
+#@auth.requires_login()
 def cart():
     if not session.cart:
         session.cart = []
@@ -189,7 +195,7 @@ def cart():
 
 
 ################################
-
+#@auth.requires_login()
 def cart_form():
     if not session.cliente:
         session.cliente = 'cliente'
@@ -225,28 +231,14 @@ def cart_form():
 
                  
     return dict(form=form, form_product=form_product, cart=session.cart, cliente=session.cliente) 
-
-def finalizar():
-    cliente_id = session.cliente[0]
-    cliente_nome = session.cliente[1]
-
-    cart = session.cart
-    
-    #for i in range(len(cart)):
-        #print(cart[i][0])
-
-    db.vendas.insert(cliente_id=cliente_id, nome=cliente_nome)
-
-    print('retorno insert ', db.vendas.insert)
-    #redirect(URL('default', 'delete_cart'))
-    return dict(finalizar=finalizar)
-
+#@auth.requires_login()
 def delete_cart():
     session.cliente = None
     session.cart = None
     return dict(delete_cart=delete_cart)
 
 #teste com data 
+#@auth.requires_login()
 def contando_data():
 
     ano= 2020       #formato AAA

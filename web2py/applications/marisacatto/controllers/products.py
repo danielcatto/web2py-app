@@ -4,7 +4,7 @@ def index():
     return dict(produtos=produtos)
     
 
-
+#@auth.requires_login()
 def show_products():
     grid = SQLFORM.grid(db.produtos.id>0)
     return grid
@@ -65,7 +65,7 @@ def category():
 def category_registration():
     form = SQLFORM(Categorias)
     if form.process().accepted:
-        session.flash = 'Nova categoria cadastrada: %s' % form.vars.nome_categoria
+        session.flash = 'Nova categoria cadastrada: '
         redirect(URL('category'))
     elif form.errors:
         response.flash = "Erro"
