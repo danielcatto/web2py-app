@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3f73d61e-2d87-4a25-ae78-a666cd3399e4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/applications/marisacatto/controllers/default.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/marisacatto/controllers/default.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/marisacatto/databases/storage.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/applications/marisacatto/databases/storage.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/marisacatto/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/applications/marisacatto/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/httpserver.log" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/httpserver.pid" beforeDir="false" afterPath="$PROJECT_DIR$/httpserver.pid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters_8000.py" beforeDir="false" afterPath="$PROJECT_DIR$/parameters_8000.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1eQVe21YDNQoEtlUH3axRJCgju8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3f73d61e-2d87-4a25-ae78-a666cd3399e4" name="Default Changelist" comment="" />
+      <created>1594253894725</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594253894725</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1441" y="19" width="1022" height="737" key="SettingsEditor" timestamp="1594436690941">
+      <screen x="1440" y="0" width="1024" height="768" />
+    </state>
+    <state x="1441" y="19" width="1022" height="737" key="SettingsEditor/72.27.1368.873/1440.0.1024.768@1440.0.1024.768" timestamp="1594436690941" />
+    <state x="1608" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1594254493969">
+      <screen x="1440" y="0" width="1024" height="768" />
+    </state>
+    <state x="1608" y="211" key="com.intellij.ide.util.TipDialog/72.27.1368.873/1440.0.1024.768@1440.0.1024.768" timestamp="1594254493969" />
+  </component>
+</project>
