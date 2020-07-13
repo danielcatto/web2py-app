@@ -7,15 +7,15 @@
 
 {{ else: }}
 {{=form_product}}
-Nome do cliente: {{ =session.cliente[0] }}, {{ =session.cliente[1] }} <br>
-Total da compra = {{ =session.total_geral }}
+Nome do cliente: {{ =session.cliente[0] }}, {{ =session.cliente[1] }} | <a href="{{=URL('default', 'delete_cliente')}}"> trocar cliente </a><br>
+Total da compra = {{ =session.total_geral }} 
 <table width=900px border="1">
     <tr  bgcolor="silver">
-        <th>Id</th>
-        <th>nome </th>
-        <th>valor </th>
-        <th>quantidade </thd>
-        <th>sub_total </th>       
+        <th>Código</th>
+        <th>Nome </th>
+        <th>Valor </th>
+        <th>Quantidade </thd>
+        <th>Subtotal </th>       
     </tr>
     {{if session.cart:}}
     {{ for lista in range(len(cart)): }}

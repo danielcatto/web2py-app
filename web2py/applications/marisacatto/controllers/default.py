@@ -210,6 +210,9 @@ def cart_form():
             if query:
                 session.cliente = (query[0]['id'],query[0]['nome'])
                 print('session.cliente[0]', session.cliente[0])
+            else:
+                response.flash = "Nenhum registro encontrado"
+
 
     form_product = SQLFORM.factory(
         Field('product_id', requires=IS_NOT_EMPTY(), label='Código produto'),
@@ -224,17 +227,28 @@ def cart_form():
                 sub_total = float(product_query[i]['valor']) * float(quantidade)
                 session.total_geral += sub_total
                 product = (product_query[i]['id'], product_query[i]['nome'], product_query[i]['valor'], quantidade, sub_total)
-                session.cart.append(product)             
+                session.cart.append(product)     
+        else:
+            response.flash = "Nenhum registro encontrado com o codigo informado!"        
                 
     return dict(form=form, form_product=form_product, cart=session.cart, cliente=session.cliente) 
 
 #@auth.requires_login()
 def delete_cart():
-    session.cliente = None
     session.cart = None
-    session.sub = 0
     session.total_geral = 0
     return dict(delete_cart=delete_cart)
+
+def delete_cliente():
+    session.cliente = None
+    redirect(URL('cart_form'))
+    return dict(delete_cliente=delete_cliente)
+
+
+
+def grava_pedido():
+    pass
+
 
 #teste com data 
 #@auth.requires_login()
