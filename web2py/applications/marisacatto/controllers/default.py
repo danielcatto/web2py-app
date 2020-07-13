@@ -198,7 +198,7 @@ def cart():
 #@auth.requires_login()
 def cart_form():
     if not session.cliente:
-        session.cliente = 'cliente'
+        session.cliente = []
         session.cart = []
         session.sub = 0
     query = ''
