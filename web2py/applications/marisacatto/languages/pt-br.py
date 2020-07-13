@@ -300,6 +300,7 @@
 'This is a copy of the scaffolding application': 'Isto é uma cópia da aplicação modelo',
 'Time in Cache (h:m:s)': 'Tempo em Cache (h:m:s)',
 'Timestamp': 'Timestamp',
+'Too short': 'Too short',
 'Traceback': 'Traceback',
 'TSV (Spreadsheets)': 'TSV (Spreadsheets)',
 'TSV (Spreadsheets, hidden cols)': 'TSV (Spreadsheets, hidden cols)',

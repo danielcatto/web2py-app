@@ -17,18 +17,7 @@ def customer_registration():
         response.flash = "Fill in all fields"
     return dict(form=form)
 
-#lista todos os clientes
-@auth.requires_login()
-def customers():
-    query = ''
-    form = SQLFORM.factory(
-        Field('nome', requires=IS_NOT_EMPTY(), label='customer name')
-        )
-    if form.process().accepted:
-        query = db(Clientes.nome.like('%'+request.vars.nome+'%')).select()
-        if query:
-            session.cliente = (query[0]['id'],query[0]['nome'])
-    return dict(query=query, form=form) 
+
     
 
 

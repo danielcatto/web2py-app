@@ -1,12 +1,15 @@
 {{extend 'base.html'}}
 {{block central}}
 
-{{ form }}
-{{ =session.cliente }}
 
+{{ if not session.cliente:}}
+    {{ =form }}
+
+{{ else: }}
 {{=form_product}}
-
-<table width=800px border="1">
+Nome do cliente: {{ =session.cliente[0] }}, {{ =session.cliente[1] }} <br>
+Total da compra = {{ =session.total_geral }}
+<table width=900px border="1">
     <tr  bgcolor="silver">
         <th>Id</th>
         <th>nome </th>
@@ -22,10 +25,14 @@
         <td>{{ =cart[lista][2] }}</td>
         <td>{{ =cart[lista][3] }}</td>
         <td>{{ =cart[lista][4] }}</td>
+        
     {{ pass }}
-    {{pass}}
+{{pass}}
     </tr>
 </table>
+
+{{ pass }} 
+
 <Br>
-<a href="{{=URL('customer','customers.html')}}" class="btn btn-primary mx-2 px-5 mb-3 aos-init aos-animate">Fechar</a>
+
 {{end}}

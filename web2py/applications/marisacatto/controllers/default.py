@@ -167,10 +167,6 @@ def show_cart():
 
     return dict(cart=cart, cliente=cliente)
 
-#@auth.requires_login()
-def delete_cart():
-    session.cart = ''
-    redirect(URL('products', 'product'))
  
 #@auth.requires_login()
 def cart():
@@ -201,6 +197,7 @@ def cart_form():
         session.cliente = []
         session.cart = []
         session.sub = 0
+        session.total_geral = 0
     query = ''
     product_query=''
     product = tuple()
@@ -225,16 +222,18 @@ def cart_form():
         if product_query:
             for i in range(len(product_query)):
                 sub_total = float(product_query[i]['valor']) * float(quantidade)
-                session.sub = session.sub + sub_total
+                session.total_geral += sub_total
                 product = (product_query[i]['id'], product_query[i]['nome'], product_query[i]['valor'], quantidade, sub_total)
-                session.cart.append(product)
-
-                 
+                session.cart.append(product)             
+                
     return dict(form=form, form_product=form_product, cart=session.cart, cliente=session.cliente) 
+
 #@auth.requires_login()
 def delete_cart():
     session.cliente = None
     session.cart = None
+    session.sub = 0
+    session.total_geral = 0
     return dict(delete_cart=delete_cart)
 
 #teste com data 
