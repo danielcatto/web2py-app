@@ -1,4 +1,4 @@
-timestamp: 2020-02-17T18:04:41.895679
+timestamp: 2020-07-13T22:36:06.525662
 CREATE TABLE "auth_user"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "first_name" CHAR(128),
@@ -10,21 +10,21 @@ CREATE TABLE "auth_user"(
     "registration_id" CHAR(512)
 );
 success!
-timestamp: 2020-02-17T18:04:41.972870
+timestamp: 2020-07-13T22:36:06.621426
 CREATE TABLE "auth_group"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "role" CHAR(512),
     "description" TEXT
 );
 success!
-timestamp: 2020-02-17T18:04:42.034665
+timestamp: 2020-07-13T22:36:06.722142
 CREATE TABLE "auth_membership"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  
 );
 success!
-timestamp: 2020-02-17T18:04:42.096817
+timestamp: 2020-07-13T22:36:06.864582
 CREATE TABLE "auth_permission"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
@@ -33,7 +33,7 @@ CREATE TABLE "auth_permission"(
     "record_id" INTEGER
 );
 success!
-timestamp: 2020-02-17T18:04:42.159609
+timestamp: 2020-07-13T22:36:06.947690
 CREATE TABLE "auth_event"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "time_stamp" TIMESTAMP,
@@ -43,7 +43,7 @@ CREATE TABLE "auth_event"(
     "description" TEXT
 );
 success!
-timestamp: 2020-02-17T18:04:42.309424
+timestamp: 2020-07-13T22:36:07.022691
 CREATE TABLE "auth_cas"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
@@ -53,14 +53,14 @@ CREATE TABLE "auth_cas"(
     "renew" CHAR(1)
 );
 success!
-timestamp: 2020-02-17T18:04:42.456682
+timestamp: 2020-07-13T22:36:07.131811
 CREATE TABLE "pessoa"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "nome" CHAR(512),
     "telefone" INTEGER
 );
 success!
-timestamp: 2020-02-17T18:04:42.519613
+timestamp: 2020-07-13T22:36:07.224112
 CREATE TABLE "clientes"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "nome" CHAR(512),
@@ -75,13 +75,13 @@ CREATE TABLE "clientes"(
     "ativo" CHAR(1)
 );
 success!
-timestamp: 2020-02-17T18:04:42.581670
+timestamp: 2020-07-13T22:36:07.307511
 CREATE TABLE "categorias"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "nome_categoria" CHAR(512)
 );
 success!
-timestamp: 2020-02-17T18:04:42.643365
+timestamp: 2020-07-13T22:36:07.408396
 CREATE TABLE "produtos"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "nome" CHAR(512),
@@ -92,23 +92,27 @@ CREATE TABLE "produtos"(
     "categoria" INTEGER REFERENCES "categorias" ("id") ON DELETE CASCADE  
 );
 success!
-timestamp: 2020-02-17T18:04:42.704536
-CREATE TABLE "itens"(
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "pedido" INTEGER,
-    "codigo_produto" INTEGER,
-    "quantidade" DOUBLE,
-    "valor" DOUBLE,
-    "sub_total" DOUBLE
-);
-success!
-timestamp: 2020-02-17T18:04:42.766753
+timestamp: 2020-07-13T22:36:07.569577
 CREATE TABLE "vendas"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "cliente_id" INTEGER,
-    "nome" CHAR(512),
+    "cliente_id" CHAR(512),
     "total_compra" DOUBLE,
     "forma_pagamento" CHAR(512),
-    "status" CHAR(1)
+    "status_do_pagamento" CHAR(1)
 );
+success!
+DELETE FROM "vendas";
+DELETE FROM sqlite_sequence WHERE name='vendas'
+success!
+DELETE FROM "vendas";
+DELETE FROM sqlite_sequence WHERE name='vendas'
+success!
+DELETE FROM "vendas";
+DELETE FROM sqlite_sequence WHERE name='vendas'
+success!
+DELETE FROM "vendas";
+DELETE FROM sqlite_sequence WHERE name='vendas'
+success!
+DELETE FROM "vendas";
+DELETE FROM sqlite_sequence WHERE name='vendas'
 success!

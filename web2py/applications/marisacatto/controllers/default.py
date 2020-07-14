@@ -233,6 +233,23 @@ def cart_form():
                 
     return dict(form=form, form_product=form_product, cart=session.cart, cliente=session.cliente) 
 
+
+
+def grava_pedido():
+    cliente_id = session.cliente[0]
+    cart = session.cart
+    
+    db.vendas.insert(cliente_id=cliente_id, total_compra=session.total_geral, forma_pagamento='vista', status_do_pagamento=1 )
+    for i in range(len(cart)):
+        print(cart[i][1])
+        print(cart[i][2])
+        print('--------------')
+
+    
+    #redirect(URL('default', 'delete_cart'))
+    return dict(grava_pedido=grava_pedido)
+
+
 #@auth.requires_login()
 def delete_cart():
     session.cart = None
@@ -246,8 +263,7 @@ def delete_cliente():
 
 
 
-def grava_pedido():
-    pass
+
 
 
 #teste com data 

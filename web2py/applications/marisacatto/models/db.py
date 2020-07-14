@@ -215,7 +215,8 @@ Produtos.data_cadastro.requires=IS_NOT_EMPTY()
 
 
 
-Itens = db.define_table('itens',
+'''
+Itens_pedido = db.define_table('itens_pedido',
 			    Field('pedido', 'integer'),
 			    Field('codigo_produto', 'integer'),
 			    Field('quantidade', 'float'),
@@ -223,13 +224,11 @@ Itens = db.define_table('itens',
 			    Field('sub_total', 'float')
 			     )
 
+'''
 
-Venda =  db.define_table('vendas',
+Vendas =  db.define_table('vendas',
                             
-                            Field('cliente_id','integer'),
-                            Field('nome', 'string'),                     
+                            Field('cliente_id', 'string'),
                             Field('total_compra', 'float'),
-                            Field('forma_pagamento', 'string'),
-                            Field('status', 'boolean')
-                            )
-
+                            Field('forma_pagamento', 'string'),                    
+                            Field('status_do_pagamento', 'boolean'))
