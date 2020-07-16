@@ -17,7 +17,7 @@ def product():
     
 @auth.requires_login()
 def product_registration():
-    form = SQLFORM(Produtos)
+    form = SQLFORM(db.produtos)
 
     if form.process().accepted:
         session.flash = 'Produto Cadastrado'

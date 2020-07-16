@@ -215,20 +215,22 @@ Produtos.data_cadastro.requires=IS_NOT_EMPTY()
 
 
 
-'''
+
 Itens_pedido = db.define_table('itens_pedido',
-			    Field('pedido', 'integer'),
+			    Field('id', 'integer'),
+                Field('pedido_id', 'integer'),
 			    Field('codigo_produto', 'integer'),
 			    Field('quantidade', 'float'),
 			    Field('valor', 'float'),
 			    Field('sub_total', 'float')
 			     )
 
-'''
+
 
 Vendas =  db.define_table('vendas',
                             
-                            Field('cliente_id', 'string'),
+                            Field('cliente_id', 'integer'),
                             Field('total_compra', 'float'),
-                            Field('forma_pagamento', 'string'),                    
-                            Field('status_do_pagamento', 'boolean'))
+                            Field('forma_pagamento', requires=IS_IN_SET(['Vista', 'Débito', 'Crédito'])), 
+                            Field('status_do_pagamento', 'boolean')
+                            )

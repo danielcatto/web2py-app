@@ -2,5 +2,31 @@
 
 {{block central}}
 <h1>Cadastro de Produtos web2py-app</h1>
-{{=BEAUTIFY(form)}}
+
+{{=form.custom.begin}}
+<label for="Nome"><span class="formContatoNome">Nome</span></label>
+    {{=form.custom.widget.nome}}
+<br />
+
+<label for="Email"><span class="formContatoEmail">Valor</span></label>
+    {{=form.custom.widget.valor}}
+<br />
+
+<label for="Email"><span class="formContatoEmail">quantidade</span></label>
+    {{=form.custom.widget.quantidade}}
+<br />
+<label for="Email"><span class="formContatoEmail">imagemdoproduto</span></label>
+    {{=form.custom.widget.imagemdoproduto}}
+<br />
+<label for="Email"><span class="formContatoEmail">data_cadastro</span></label>
+    {{=form.custom.widget.data_cadastro}}
+<br />
+<label for="Email"><span class="formContatoEmail">data_cadastro</span></label>
+    {{=form.custom.widget.categoria}}
+    
+<br />
+<input id="formContatoBt" name="ok" type="submit" value="Salvar" />
+  <br />
+
+{{=form.custom.end}}
 {{end}}

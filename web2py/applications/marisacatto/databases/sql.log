@@ -116,3 +116,414 @@ success!
 DELETE FROM "vendas";
 DELETE FROM sqlite_sequence WHERE name='vendas'
 success!
+timestamp: 2020-07-14T14:38:34.358419
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+success!
+success!
+success!
+timestamp: 2020-07-14T14:47:53.465635
+ALTER TABLE "itens_pedido" ADD "pedido_id" INTEGER;
+success!
+success!
+success!
+success!
+timestamp: 2020-07-14T14:50:10.993422
+ALTER TABLE "vendas" ADD "pedido_id" INTEGER REFERENCES "itens_pedido" ("id") ON DELETE CASCADE  ;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2020-07-14T18:29:19.739442
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+success!
+timestamp: 2020-07-15T16:22:09.587686
+ALTER TABLE "itens_pedido" ADD "pedido_id" INTEGER;
+success!
+timestamp: 2020-07-15T16:22:57.397655
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido_id" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+success!
+timestamp: 2020-07-15T16:30:33.060800
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido_id" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+timestamp: 2020-07-15T16:30:56.313596
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido_id" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+timestamp: 2020-07-15T16:32:41.155196
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido_id" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+timestamp: 2020-07-15T16:32:41.772609
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido_id" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+timestamp: 2020-07-15T16:32:41.944308
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido_id" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+timestamp: 2020-07-15T16:32:42.093649
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido_id" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+timestamp: 2020-07-15T16:36:47.093832
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido_id" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+success!
+timestamp: 2020-07-15T16:36:47.176713
+CREATE TABLE "vendas"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "cliente_id" INTEGER,
+    "total_compra" DOUBLE,
+    "forma_pagamento" CHAR(512),
+    "status_do_pagamento" CHAR(1)
+);
+success!
+timestamp: 2020-07-15T19:11:45.930346
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido_id" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+timestamp: 2020-07-15T19:11:48.760050
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido_id" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+timestamp: 2020-07-15T19:11:53.746175
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido_id" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+timestamp: 2020-07-15T19:12:10.633898
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido_id" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+timestamp: 2020-07-15T19:12:23.035460
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido_id" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+timestamp: 2020-07-15T19:12:27.009742
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido_id" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+timestamp: 2020-07-15T19:12:27.602489
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido_id" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+timestamp: 2020-07-15T19:12:27.790257
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido_id" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+timestamp: 2020-07-15T19:13:04.106317
+CREATE TABLE "itens_pedido"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido_id" INTEGER,
+    "codigo_produto" INTEGER,
+    "quantidade" DOUBLE,
+    "valor" DOUBLE,
+    "sub_total" DOUBLE
+);
+success!
+timestamp: 2020-07-15T19:13:04.178517
+CREATE TABLE "vendas"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "cliente_id" INTEGER,
+    "total_compra" DOUBLE,
+    "forma_pagamento" CHAR(512),
+    "status_do_pagamento" CHAR(1)
+);
+success!
