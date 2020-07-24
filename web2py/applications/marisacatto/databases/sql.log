@@ -527,3 +527,45 @@ CREATE TABLE "vendas"(
     "status_do_pagamento" CHAR(1)
 );
 success!
+success!
+timestamp: 2020-07-16T20:08:01.652893
+ALTER TABLE "vendas" ADD "data_pedido" TIMESTAMP;
+timestamp: 2020-07-16T20:08:13.338085
+ALTER TABLE "vendas" ADD "data_pedido" TIMESTAMP;
+timestamp: 2020-07-16T20:08:38.103431
+ALTER TABLE "vendas" ADD "data_pedido" TIMESTAMP;
+timestamp: 2020-07-16T20:08:38.798027
+ALTER TABLE "vendas" ADD "data_pedido" TIMESTAMP;
+timestamp: 2020-07-16T20:08:38.988822
+ALTER TABLE "vendas" ADD "data_pedido" TIMESTAMP;
+timestamp: 2020-07-16T20:08:39.203434
+ALTER TABLE "vendas" ADD "data_pedido" TIMESTAMP;
+timestamp: 2020-07-16T20:08:39.315329
+ALTER TABLE "vendas" ADD "data_pedido" TIMESTAMP;
+timestamp: 2020-07-16T20:08:39.444547
+ALTER TABLE "vendas" ADD "data_pedido" TIMESTAMP;
+timestamp: 2020-07-16T20:09:30.721748
+ALTER TABLE "vendas" ADD "data_pedido" TIMESTAMP;
+timestamp: 2020-07-16T20:10:05.971132
+ALTER TABLE "vendas" ADD "data_pedido" TIMESTAMP;
+timestamp: 2020-07-16T20:10:42.263897
+CREATE TABLE "vendas"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "cliente_id" INTEGER REFERENCES "clientes" ("id") ON DELETE CASCADE  ,
+    "total_compra" DOUBLE,
+    "forma_pagamento" CHAR(512),
+    "status_do_pagamento" CHAR(1),
+    "data_pedido" TIMESTAMP
+);
+success!
+timestamp: 2020-07-16T20:47:28.055216
+CREATE TABLE "saldo_pago"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "pedido" INTEGER,
+    "valor_total" INTEGER,
+    "valor_pado" DOUBLE
+);
+success!
+timestamp: 2020-07-16T20:47:28.157887
+ALTER TABLE "vendas" ADD "saldo_pago" INTEGER REFERENCES "saldo_pago" ("id") ON DELETE CASCADE  ;
+success!

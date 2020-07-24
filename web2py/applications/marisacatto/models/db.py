@@ -225,12 +225,19 @@ Itens_pedido = db.define_table('itens_pedido',
 			    Field('sub_total', 'float')
 			     )
 
-
+Saldo_pado = db.define_table('saldo_pago',
+                            Field('pedido', 'integer'),
+                            Field('valor_total', 'integer'),
+                            Field('valor_pado', 'float'),
+                            )
 
 Vendas =  db.define_table('vendas',
                             
-                            Field('cliente_id', 'integer'),
+                            Field('cliente_id', 'reference clientes'),
                             Field('total_compra', 'float'),
                             Field('forma_pagamento', requires=IS_IN_SET(['Vista', 'Débito', 'Crédito'])), 
-                            Field('status_do_pagamento', 'boolean')
+                            Field('status_do_pagamento', 'boolean'),
+                            Field('saldo_pago' , 'reference saldo_pago' ),
+                            Field('data_pedido', 'datetime', default=request.now),
                             )
+Vendas.data_pedido.requires=IS_EMPTY_OR(IS_DATE(format='%d/%m/%Y'))

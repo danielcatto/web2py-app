@@ -239,7 +239,7 @@ def grava_pedido():
     cliente_id = session.cliente[0]
     cart = session.cart
     
-    id = db.vendas.insert(cliente_id=cliente_id, total_compra=session.total_geral, forma_pagamento='Vista', status_do_pagamento=False )
+    id = db.vendas.insert(cliente_id=cliente_id, total_compra=session.total_geral, forma_pagamento='Vista', status_do_pagamento=False)
     print('id retornada ', id)
     for i in range(len(cart)):
         db.itens_pedido.insert(pedido_id=id, codigo_produto=cart[i][0], quantidade=cart[i][3], valor=cart[i][2], sub_total=cart[i][4])
@@ -264,6 +264,7 @@ def delete_cliente():
 def caixa():
     #cli = db(Clientes.id == request.args(0)).select()
     query = db(Vendas.status_do_pagamento==1).select()
+    
     return dict(pedidos=query)
 
 
