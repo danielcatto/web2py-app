@@ -1,9 +1,15 @@
 {{extend 'base.html'}}
 {{block central}}
 
+{{ if(session.cliente == ''):}}
+{{ =form }}
+{{ pass }}
+
 {{=form_product}}
 
 <table width=800px>
+
+    <tr>Cliente: {{ =session.cliente[1] }}</tr>
     <tr  bgcolor="silver">
         <td>Id</td>
         <td>nome </td>

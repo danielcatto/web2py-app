@@ -1,0 +1,5 @@
+{{extend 'base.html'}}
+{{block central}}
+{{for cliente in cli:}}
+{{ =cliente.id }} {{ =cliente.nome }}
+{{pass}}

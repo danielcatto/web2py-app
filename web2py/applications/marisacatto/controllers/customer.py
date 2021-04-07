@@ -28,7 +28,7 @@ def customers():
     if form.process().accepted:
         query = db(Clientes.nome.like('%'+request.vars.nome+'%')).select()
         if query:
-            nome = query[0]['nome']
+            print(len(query))
     return dict(query=query, form=form) 
     
 
@@ -53,6 +53,13 @@ def customer_edit():
             response.flash = "Fill in all fields"
     return dict(form=form)
 
+
+def customer_selected():
+    cli = db(Clientes.id == request.args(0)).select()
+    sess = db(Clientes.id == session.cliente[0])
+    print(sess)
+    print('id cli ', cli[0]['id'])
+    return dict(cli=cli)
 
 def login():
     return dict(login=login)
