@@ -192,7 +192,7 @@ def cart():
 
 def cart_form():
     if not session.cliente:
-        session.cliente = 'cliente'
+        session.cliente = ''
         session.cart = []
         session.sub = 0
     query = ''
@@ -221,10 +221,9 @@ def cart_form():
                 sub_total = float(product_query[i]['valor']) * float(quantidade)
                 session.sub = session.sub + sub_total
                 product = (product_query[i]['id'], product_query[i]['nome'], product_query[i]['valor'], quantidade, sub_total)
-                session.cart.append(product)
-
-                 
+                session.cart.append(product)                 
     return dict(form=form, form_product=form_product, cart=session.cart, cliente=session.cliente) 
+
 
 def finalizar():
     cliente_id = session.cliente[0]
@@ -235,7 +234,7 @@ def finalizar():
     #for i in range(len(cart)):
         #print(cart[i][0])
 
-    db.vendas.insert(cliente_id=cliente_id, nome=cliente_nome)
+    #db.vendas.insert(cliente_id=cliente_id, nome=cliente_nome)
 
     print('retorno insert ', db.vendas.insert)
     #redirect(URL('default', 'delete_cart'))

@@ -56,9 +56,10 @@ def customer_edit():
 
 def customer_selected():
     cli = db(Clientes.id == request.args(0)).select()
-    sess = db(Clientes.id == session.cliente[0])
-    print(sess)
+    
+    session.cliente = (cli[0]['id'],cli[0]['nome'])
     print('id cli ', cli[0]['id'])
+    
     return dict(cli=cli)
 
 def login():

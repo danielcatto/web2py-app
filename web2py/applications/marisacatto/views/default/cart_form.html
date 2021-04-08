@@ -5,11 +5,13 @@
 {{ =form }}
 {{ pass }}
 
+
+
 {{=form_product}}
 
 <table width=800px>
 
-    <tr>Cliente: {{ =session.cliente[1] }}</tr>
+    <tr>Cliente: {{ =session.cliente[1] }} | Total: {{ =session.sub}}</tr>
     <tr  bgcolor="silver">
         <td>Id</td>
         <td>nome </td>
@@ -28,6 +30,7 @@
     {{ pass }}
     {{pass}}
     </tr>
+    
 </table>
 <Br>
 <a href="{{=URL('customer','customers.html')}}" class="btn btn-primary mx-2 px-5 mb-3 aos-init aos-animate">Fechar</a>
