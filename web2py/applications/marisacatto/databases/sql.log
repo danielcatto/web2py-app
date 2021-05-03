@@ -112,3 +112,6 @@ CREATE TABLE "vendas"(
     "status" CHAR(1)
 );
 success!
+timestamp: 2021-04-30T13:59:14.232272
+ALTER TABLE "clientes" ADD "cep" INTEGER;
+success!

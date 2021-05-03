@@ -265,3 +265,10 @@ def contando_data():
     resultado_delta = delta.days
 
     return dict(resultado_delta=resultado_delta, ano=ano, mes=mes, dia=dia)
+
+
+
+
+def display_form():
+    form = FORM('Your name:', INPUT(_name='name'), INPUT(_type='submit'))
+    return dict(form=form) 
